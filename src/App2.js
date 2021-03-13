@@ -10,7 +10,7 @@ import pipe from 'it-pipe';
 // import lp from 'it-length-prefixed'
 // import pushable from 'it-pushable';
 // import pair from 'it-pair'
-import DHT from 'libp2p-kad-dht'
+// import DHT from 'libp2p-kad-dht'
 
 const CHAT_PROTOCAL = '/chat/0.0.';
 const initialMessageListState = [];
