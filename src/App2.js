@@ -82,9 +82,14 @@ function App() {
           },
           relay: {                   // Circuit Relay options (this config is part of libp2p core configurations)
             enabled: true,           // Allows you to dial and accept relayed connections. Does not make you a relay.
-            autoRelay: {
-              enabled: true,         // Allows you to bind to relays with HOP enabled for improving node dialability
-              maxListeners: 2         // Configure maximum number of HOP relays to use
+            hop: {
+              enabled: true,         // Allows you to be a relay for other peers
+              active: true           // You will attempt to dial destination peers if you are not connected to them
+            },
+            advertise: {
+              bootDelay: 15 * 60 * 1000, // Delay before HOP relay service is advertised on the network
+              enabled: true,          // Allows you to disable the advertise of the Hop service
+              ttl: 30 * 60 * 1000     // Delay Between HOP relay service advertisements on the network
             }
           },
           peerDiscovery: {
