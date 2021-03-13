@@ -109,9 +109,9 @@ function App() {
       })
       nodeRef.current = node;
     
-      // libp2p.on('peer:discovery', (peerId) => {
-      //   console.log(`Found peer ${peerId.toB58String()}`)
-      // })
+      node.on('peer:discovery', (peerId) => {
+        console.log(`Found peer ${peerId.toB58String()}`)
+      })
     
       node.connectionManager.on('peer:connect', (connection) => {
         console.log(`Connected to ${connection.remotePeer.toB58String()}`)
