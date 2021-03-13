@@ -63,28 +63,35 @@ function App() {
           dht: KadDHT
         },
         config: {
-          peerDiscovery: {
-            autoDial: true,
-            nat: {
+          nat: {
+            enabled: false
+          },
+          dht: {
+            kBucketSize: 20,
+            enabled: false,
+            clientMode: true,
+            randomWalk: {
               enabled: false
             },
-            dht: {
-              kBucketSize: 20,
-              enabled: false,
-              clientMode: true,
-              randomWalk: {
-                enabled: false
-              },
-              validators: {
-                ipns: validator
-              },
-              selectors: {
-                ipns: selector
-              }
+            validators: {
+              ipns: validator
             },
-            webRTCStar: {
-              enabled: true
-            },
+            selectors: {
+              ipns: selector
+            }
+          },
+          webRTCStar: {
+            enabled: true
+          },
+          relay: {                   // Circuit Relay options (this config is part of libp2p core configurations)
+            enabled: true,           // Allows you to dial and accept relayed connections. Does not make you a relay.
+            autoRelay: {
+              enabled: true,         // Allows you to bind to relays with HOP enabled for improving node dialability
+              maxListeners: 2         // Configure maximum number of HOP relays to use
+            }
+          },
+          peerDiscovery: {
+            autoDial: true,
             // The `tag` property will be searched when creating the instance of your Peer Discovery service.
             // The associated object, will be passed to the service when it is instantiated.
             [Bootstrap.tag]: {
