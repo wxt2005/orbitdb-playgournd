@@ -13,6 +13,7 @@
     "it-pushable": "^1.4.2",
     "libp2p": "^0.30.10",
     "libp2p-bootstrap": "^0.12.2",
+    "libp2p-kad-dht": "^0.21.0",
     "libp2p-mplex": "^0.10.2",
     "libp2p-noise": "^2.0.5",
     "libp2p-webrtc-star": "^0.21.2",
