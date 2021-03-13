@@ -7,6 +7,8 @@ import Mplex from 'libp2p-mplex'
 import Bootstrap from 'libp2p-bootstrap'
 import multiaddr from 'multiaddr'
 import pipe from 'it-pipe';
+import KadDHT from 'libp2p-kad-dht'
+import ipns from 'ipns'
 // import lp from 'it-length-prefixed'
 // import pushable from 'it-pushable';
 // import pair from 'it-pair'
@@ -22,6 +24,13 @@ function messageListReducer(state, action) {
       throw new Error();
   }
 }
+
+
+const validator = {
+  func: (key, record, cb) => ipns.validator.validate(record, key, cb)
+}
+
+const selector = (_k, records) => ipns.validator.select(records[0], records[1])
 
 
 function App() {
@@ -51,9 +60,31 @@ function App() {
           connEncryption: [NOISE],
           streamMuxer: [Mplex],
           peerDiscovery: [Bootstrap],
+          dht: KadDHT
         },
         config: {
           peerDiscovery: {
+            autoDial: true,
+            nat: {
+              enabled: false
+            },
+            dht: {
+              kBucketSize: 20,
+              enabled: false,
+              clientMode: true,
+              randomWalk: {
+                enabled: false
+              },
+              validators: {
+                ipns: validator
+              },
+              selectors: {
+                ipns: selector
+              }
+            },
+            webRTCStar: {
+              enabled: true
+            },
             // The `tag` property will be searched when creating the instance of your Peer Discovery service.
             // The associated object, will be passed to the service when it is instantiated.
             [Bootstrap.tag]: {

@@ -8494,6 +8494,22 @@ ipld@^0.28.0:
     multicodec "^2.0.0"
     typical "^6.0.0"
 
+ipns@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/ipns/-/ipns-0.10.0.tgz#0bac157c963c5f1f75a245d0246be57b12f0b6a6"
+  integrity sha512-hKRjueWItlHuQsM7c/Z2GQIqbhRdxgxBi2S64AG5Z/9A7AWh9BruCF25yJkop3EBwLp6ZT9liHeu4YZm/GdQ3A==
+  dependencies:
+    debug "^4.2.0"
+    err-code "^3.0.1"
+    interface-datastore "^3.0.1"
+    libp2p-crypto "^0.19.0"
+    multibase "^4.0.2"
+    multihashes "^4.0.2"
+    peer-id "^0.14.2"
+    protobufjs "^6.10.2"
+    timestamp-nano "^1.0.0"
+    uint8arrays "^2.0.5"
+
 ipns@^0.8.0:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/ipns/-/ipns-0.8.2.tgz#4ac45cb08fc24ad587fb757bd88e979c01798a52"
@@ -11309,7 +11325,7 @@ multibase@^3.0.0, multibase@^3.0.1, multibase@^3.1.0, multibase@^3.1.1:
     "@multiformats/base-x" "^4.0.1"
     web-encoding "^1.0.6"
 
-multibase@^4.0.1:
+multibase@^4.0.1, multibase@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/multibase/-/multibase-4.0.2.tgz#8250a0f50d0ed49765146bf0e3431e3df9b249ac"
   integrity sha512-l0XMK4O5I9cCfxC0/UMDX/UxlIlrqkjEZQNG+ZUUrsGhnXWgFXgatYOQSONiR/lQGfBO463UyZkh3SiQBpjRIQ==
@@ -11363,7 +11379,7 @@ multihashes@^3.0.1, multihashes@^3.1.1:
     uint8arrays "^2.0.5"
     varint "^6.0.0"
 
-multihashes@^4.0.1:
+multihashes@^4.0.1, multihashes@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/multihashes/-/multihashes-4.0.2.tgz#d76aeac3a302a1bed9fe1ec964fb7a22fa662283"
   integrity sha512-xpx++1iZr4ZQHjN1mcrXS6904R36LWLxX/CBifczjtmrtCXEX623DMWOF1eiNSg+pFpiZDFVBgou/4v6ayCHSQ==
