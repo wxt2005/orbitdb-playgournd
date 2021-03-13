@@ -181,13 +181,13 @@ function App() {
         }
       </div>
       <div>
-        <input value={targetAddress} onChange={e => setTargetAddress(e.target.value)} />
+        <input placeholder="Target Address" value={targetAddress} onChange={e => setTargetAddress(e.target.value)} />
       </div>
       <div>
         <button onClick={ping}>PING</button>
       </div>
       <div>
-        <input value={message} onChange={e => setMessage(e.target.value)} />
+        <input placeholder="Your message" value={message} onChange={e => setMessage(e.target.value)} />
         <button onClick={sendMessage}>Send</button>
       </div>
       <div>
