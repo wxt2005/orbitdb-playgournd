@@ -80,9 +80,6 @@ function App() {
               ipns: selector
             }
           },
-          webRTCStar: {
-            enabled: true
-          },
           relay: {                   // Circuit Relay options (this config is part of libp2p core configurations)
             enabled: true,           // Allows you to dial and accept relayed connections. Does not make you a relay.
             autoRelay: {
@@ -94,6 +91,9 @@ function App() {
             autoDial: true,
             // The `tag` property will be searched when creating the instance of your Peer Discovery service.
             // The associated object, will be passed to the service when it is instantiated.
+            [WebRTCStar.tag]: {
+              enabled: true
+            },
             [Bootstrap.tag]: {
               enabled: true,
               list: [
@@ -102,6 +102,7 @@ function App() {
                 '/dnsaddr/bootstrap.libp2p.io/p2p/QmZa1sAxajnQjVM8WjWXoMbmPd7NsWhfKsPkErzpm9wGkp',
                 '/dnsaddr/bootstrap.libp2p.io/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa',
                 '/dnsaddr/bootstrap.libp2p.io/p2p/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt',
+                '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star/p2p/QmaPGr8Msp5v669yoWuzGrf2JdQEq3M195DxS3u6u1HNCa'
               ]
             }
           }
@@ -112,8 +113,13 @@ function App() {
       node.on('peer:discovery', (peerId) => {
         console.log(`Found peer ${peerId.toB58String()}`)
       })
+
+      node.on('error', e => {
+        console.error(e);
+      });
     
       node.connectionManager.on('peer:connect', (connection) => {
+        console.log(connection.remoteAddr.toString());
         console.log(`Connected to ${connection.remotePeer.toB58String()}`)
       })
     
